@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INKSPARK</title>
+
+  <!-- Bootstrap CSS CDN -->
+   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"> -->
+
+
+  <script src="script.js"></script>
+</head>
+<body>
+
+
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">      
+      <!-- ✅ Logo + App Name -->
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="logo.png" alt="Logo" width="40" height="40" class="me-2 rounded-circle" />
+        INKspark
+      </a>
+
+      <!-- Toggle Button for Mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" 
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menu Items -->
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Read</a></li>
+          <li class="nav-item"><a class="nav-link" href="template-builder.html">Write</a></li>
+         <li class="nav-item"><a class="nav-link" href="contact.html" target="_blank" rel="noopener noreferrer">Contact us</a></li>
+
+        </ul>
+      </div>
+
+
+
+    <div class="d-flex ms-auto">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+<!-- for search option -->
+
+
+
+<!-- Font Awesome CDN for search icon -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+<div class="d-flex align-items-center">
+  <i class="fas fa-search me-3" id="searchIcon" style="cursor: pointer;"></i>
+
+  <input
+    type="text"
+    id="searchBar"
+    class="form-control me-3"
+    placeholder="Search..."
+    style="display: none; width: 200px; transition: width 0.3s;"/>
+</div>
+
+<!-- JS Script -->
+<script>
+  const searchIcon = document.getElementById('searchIcon');
+  const searchBar = document.getElementById('searchBar');
+
+  // Toggle visibility
+  searchIcon.addEventListener('click', () => {
+    if (searchBar.style.display === 'none') {
+      searchBar.style.display = 'block';
+      searchBar.focus();
+    } else {
+      searchBar.style.display = 'none';
+    }
+  });
+
+  // Handle Enter key
+  searchBar.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      const query = searchBar.value.trim();
+      if (query) {
+        alert(`You searched for: ${query}`);
+        // You can replace the alert with a search function or redirect
+        searchBar.value = '';
+        searchBar.style.display = 'none';
+      }
+    }
+  });
+</script>
+
+
+   </style>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+      <!-- Login Button in Navbar -->
+      <button id="loginBtn" class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">
+        Login
+      </button>
+
+
+<!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="emailInput" class="form-label">Email</label>
+              <input type="email" id="emailInput" class="form-control" placeholder="Enter your email" required />
+            </div>
+            <div class="mb-3">
+              <label for="passwordInput" class="form-label">Password</label>
+              <input type="password" id="passwordInput" class="form-control" placeholder="Enter your password" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Log In</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Optional: JS to handle form -->
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("emailInput").value;
+      alert(`Welcome, ${email}!`);
+      const modal = bootstrap.Modal.getInstance(document.getElementById("loginModal"));
+      modal.hide();
+    });
+  </script>
+
+
+
+
+<style>
+  .btn-primary {
+    padding: 10px;
+    background-color: #43291f;
+    border: none;
+}
+
+.btn-primary {
+    margin-left: 0px;
+}
+
+    .login-button {
+      font-size: 1.1rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    .modal-content {
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-header {
+      border-bottom: none;
+      background-color: #43291f;
+      color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .modal-title {
+      font-weight: 600;
+    }
+
+    .form-label {
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      background-color: #43291f;
+      
+    }
+
+    .btn-primary:hover {
+      background-color: #fff;
+      color:#43291f;
+     
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+    #loginBtn, #signupBtn {
+  border-color: #b46449;
+  color: #b46449;
+}
+
+#loginBtn:hover, #signupBtn:hover {
+  background-color: #b46449;
+  color: white;
+}
+#loginBtn, #signupBtn {
+    border-color: #b46449;
+    color: #b46449;
+    margin-left: 1350px;
+}
+  </style>
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  
+
+
+
+
+
+
+<button id="signupBtn" class="btn btn-outline-success ms-2" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">
+  Sign Up
+</button>
+
+
+<!-- Sign Up Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="signupForm">
+          <div class="mb-3">
+            <label for="signupType" class="form-label">How would you like to sign up?</label>
+            <select id="signupType" class="form-select" required>
+              <option value="">-- Select --</option>
+              <option value="Reader">Reader</option>
+              <option value="Writer">Writer</option>
+              <option value="Guest">Guest</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="signupName" class="form-label">Name</label>
+            <input type="text" id="signupName" class="form-control" placeholder="Your Name" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="signupEmail" class="form-label">Email ID</label>
+            <input type="email" id="signupEmail" class="form-control" placeholder="you@example.com" required />
+          </div>
+
+          <button type="submit" class="btn btn-success w-100">Submit</button>
+        </form>
+
+        <div id="thankYouMessage" class="mt-3 text-center" style="display: none;">
+          <p class="text-success fw-bold">Thank you for signing up!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("signupForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Optionally collect data
+    const type = document.getElementById("signupType").value;
+    const name = document.getElementById("signupName").value;
+    const email = document.getElementById("signupEmail").value;
+
+    // Hide form, show thank you
+    this.style.display = "none";
+    document.getElementById("thankYouMessage").style.display = "block";
+
+    // Auto-close modal after 2s (optional)
+    setTimeout(() => {
+      const modal = bootstrap.Modal.getInstance(document.getElementById("signupModal"));
+      modal.hide();
+      // Reset form after closing
+      this.reset();
+      this.style.display = "block";
+      document.getElementById("thankYouMessage").style.display = "none";
+    }, 2000);
+  });
+</script>
+
+
+
+
+
+
+<style>
+  /* Optional: Custom modal width and padding */
+#signupModal .modal-dialog {
+  max-width: 400px;
+}
+
+
+.modal-header {
+    border-bottom: none;
+    background-color: #43291f;
+    color: white;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+#signupModal .modal-content {
+  border-top: 5px solid #43291f; /* brown accent line */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+#signupModal .modal-header {
+  border-bottom: none;
+  padding: 1rem 1rem 0;
+}
+
+#signupModal .modal-body {
+  padding: 0 1.5rem 1.5rem;
+}
+
+/* Form elements */
+#signupModal .form-label {
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+#signupModal .form-control,
+#signupModal .form-select {
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.95rem;
+}
+
+/* Button styles */
+#signupModal .btn-success {
+  background-color: #43291f;
+  border: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+#signupModal .btn-success:hover {
+  background-color: #fff;
+  color:#43291f;
+}
+
+/* Thank you message */
+#thankYouMessage {
+  font-size: 1rem;
+  color: #43291f;
+  font-weight: 600;
+}
+
+#signupBtn {
+  border-color: #b46449;
+  color: #b46449;
+}
+
+#signupBtn:hover {
+  background-color: #b46449;
+  color: #fff;
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+  <!-- This is for the three slides on the main page -->
+  <!-- Slick CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero-slider {
+      height: 80vh;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
+    }
+
+    /* .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+      z-index: 10;
+    } */
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+    .slide-content h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .slide-content p {
+      font-size: 1.5rem;
+    }
+
+    /* Optional overlay for readability */
+    .hero-slide::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .slide-content > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .slick-dots {
+      bottom: 20px;
+    }
+
+
+
+.hero-slide {
+  display: flex;
+  color: #fff;
+  position: relative;
+  height: 100vh; /* full viewport height */
+}
+
+.slide-left, .slide-right {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide-left img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.slide-content {
+  max-width: 90%;
+}
+
+.slide-right img {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Hero Slider -->
+  <div class="hero-slider">
+  <div class="hero-slide" style="background-color:#c2c5aa;">
+    <div class="slide-content">
+      
+<h1 class="animate__animated" data-animation="animate__fadeInDown" id="headlineText">
+  Welcome to <strong><span id="typewriter-text"></span></strong>
+</h1>
+      <!-- <h2 class="animate__animated" data-animation="animate__fadeInDown">Welcome to INKspark</h2> -->
+      <p class="animate__animated" data-animation="animate__fadeInUp">INKspark is a creative platform where thoughts meet words. It empowers writers, thinkers, and readers to express themselves, discover diverse perspectives, and engage with meaningful content.</p>
+    </div>
+    <img src="mind-.png" alt="Creative illustration" class="slide-image1" />
+  </div>
+
+  <div class="hero-slide" style="background-color: 	hsl(0, 0%, 20%);">
+    <div class="slide-content">
+      <h2 class="animate__animated" data-animation="animate__fadeInDown">INKspark</h2>
+      <p class="animate__animated" data-animation="animate__fadeInUp">
+
+At INKspark, creativity flows freely. Whether you want to read inspiring articles or write your own stories, our platform offers the perfect space to ignite your imagination and share your voice with the world.</p>
+    </div>
+    <img src="image77.png" alt="Creative illustration" class="slide-image2" />
+  </div>
+
+  <div class="hero-slide" style="background-color: hsl(11, 39%, 49%);">
+    <div class="slide-content">
+      <h2 class="animate__animated" data-animation="animate__fadeInDown" 
+       >Create, Connect, and Grow</h2>
+      <p class="animate__animated" data-animation="animate__fadeInUp" >Take your passion to the next level with INKspark. Share your work, get valuable feedback, and explore new horizons in writing and creativity. Your journey starts here.</p>
+    </div>
+    <img src="image1212-.png" alt="Creative illustration" class="slide-image3" />
+  </div>
+</div>
+
+
+<style>
+.hero-slide {
+  display: flex;
+  align-items: center;
+  min-height: 300px; /* Adjust as needed */
+  padding-left: 40px;
+}
+
+.slide-content {
+  max-width: 50%;
+  text-align: left;
+  padding-right: 200px;
+  box-sizing: border-box;
+  margin-left: -80px;
+  margin-top: -80px;
+}
+
+
+.slide-image2 {
+  max-width: 26%; /* image takes about 45% of width */
+  height: auto;
+  border-radius: 8px; /* optional rounded corners */
+  object-fit: cover;  /* keep aspect ratio */
+  margin-left: 900px;
+  margin-top: 5px;
+}
+
+
+.slide-image3 {
+  max-width: 39%; /* image takes about 45% of width */
+  height: auto;
+  border-radius: 8px; /* optional rounded corners */
+  object-fit: cover;  /* keep aspect ratio */
+  margin-left: 850px;
+  margin-top: 0px;
+}
+
+
+.slide-image1 {
+  max-width: 100%; /* image takes about 45% of width */
+  height: auto;
+  border-radius: 8px; /* optional rounded corners */
+  object-fit: cover;  /* keep aspect ratio */
+  margin-left: 870px;
+  margin-top: 40px;
+}
+
+
+.slide-content h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* professional font */
+  font-size: 2.7rem;      
+  font-weight: 400;     /* normal weight, no bold */
+  color: #fff;       /* dark text color */
+  margin-bottom: 12px;  
+}
+
+.slide-content h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* professional font */
+  font-size: 3rem;      
+  font-weight: 400;     /* normal weight, no bold */
+  color: #fff;       /* dark text color */
+  margin-bottom: 12px;  
+}
+
+.slide-content p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.3rem;    /* paragraph size */
+  font-weight: 100;     /* normal weight */
+  line-height: 1.6;     /* spacing between lines for readability */
+  color: #fff;       /* slightly lighter than heading */
+}
+
+</style>
+
+  <!-- jQuery + Slick JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('.hero-slider').on('init', function(event, slick){
+        const firstSlide = $(slick.$slides[0]);
+        animateSlide(firstSlide);
+      });
+
+      $('.hero-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+        const nextSlideEl = $(slick.$slides[nextSlide]);
+        resetAnimations();
+        animateSlide(nextSlideEl);
+      });
+
+      $('.hero-slider').slick({
+        autoplay: true,
+        autoplaySpeed: 5000,
+        fade: true,
+        dots: true,
+        arrows: false
+      });
+
+      function animateSlide(slide) {
+        slide.find('h2').addClass('animate__animated animate__fadeInDown');
+        slide.find('p').addClass('animate__animated animate__fadeInUp');
+      }
+
+      function resetAnimations() {
+        $('.hero-slide h2, .hero-slide p').removeClass('animate__animated animate__fadeInDown animate__fadeInUp');
+      }
+    });
+  </script>
+
+<!-- The above code is for the three slides -->
+
+
+
+
+
+<!-- There sre two buttons write and read -->
+  <button id="writeBtn" 
+    style="padding: 12px 25px; background-color: hsl(11, 53%, 48%); color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease; position: relative; top: -20px; margin-left: 50px;">
+    Let's write
+  </button>
+
+  <script>
+    document.getElementById("writeBtn").addEventListener("click", function () {
+      window.open("template-builder.html", "_blank"); // Opens in a new tab
+    });
+  </script>
+
+
+  
+
+
+
+ <button class="button-style" id="readBtn" 
+  style="padding: 12px 25px; background-color: hsl(11, 53%, 48%); color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease; position: relative; top: -20px; margin-left: 10px;">
+  Let's Read
+</button>
+</div>
+  
+</div>
+
+
+  <!-- Article are there -->
+  <div class="container mt-5 pt-5" id="articles">
+    <h2 class="mb-4"></h2>
+
+    <div class="feed-view">
+      <div class="article-card">
+        <a href="health.html" target="_blank" style="text-decoration: none; color: inherit;">
+      
+       <img src="health.png" style="width: 35%; height: 230px; object-fit: cover; border-radius: 30px;" alt="health" />
+        
+      </a>
+      
+      </div>
+      <div class="article-card">
+        <a href="travel.html" target="_blank" style="text-decoration: none; color: inherit;">
+      
+        <img src="travel.png" style="width: 35%; height: 230px; object-fit: cover; border-radius: 30px;" alt="travel" />
+  </a>
+
+      </div>
+      <div class="article-card">
+        <a href="environment.html" target="_blank" style="text-decoration: none; color: inherit;">
+       
+       <img src="environment.png" style="width: 35%; height: 230px; object-fit: cover; border-radius: 30px;" alt="environment" />
+        </a>
+        
+      </div>
+
+<div class="article-card">
+  <a href="food.html" target="_blank" style="text-decoration: none; color: inherit;">
+   
+      <img src="food.png" style="width: 35%; height: 230px; object-fit: cover; border-radius: 30px;" alt="food" />
+        </a>
+      </div>
+      <div class="article-card">
+        <a href="technology.html" target="_blank" style="text-decoration: none; color: inherit;">
+      
+      <img src="tech.png" style="width: 35%; height: 230px; object-fit: cover; border-radius: 30px;" alt="technology" />
+
+      </a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Smooth Scroll JS -->
+ <script>
+  document.getElementById("readBtn").addEventListener("click", function () {
+    document.getElementById("articles").scrollIntoView({ behavior: "smooth" });
+  });
+
+
+
+
+  const typewriterText = document.getElementById("typewriter-text");
+  const word = "INKspark";
+  let index = 0;
+  let deleting = false;
+
+  function typeLoop() {
+    if (!deleting) {
+      
+      index++;
+      typewriterText.textContent = word.substring(0, index);
+
+      if (index === word.length) {
+     
+        deleting = true;
+        setTimeout(typeLoop, 1500);
+        return;
+      }
+    } else {
+    
+      index--;
+      typewriterText.textContent = word.substring(0, index);
+
+      if (index === 0) {
+      
+        deleting = false;
+        setTimeout(typeLoop, 500);
+        return;
+      }
+    }
+    setTimeout(typeLoop, deleting ? 100 : 200);
+  }
+
+  typeLoop();
+
+</script>
+
+
+
+
+<script>
+  function fadeOutAndRemove(idToHide, callback) {
+    const el = document.getElementById(idToHide);
+    el.classList.add('hidden');
+    setTimeout(() => {
+      el.style.display = 'none';
+      if (callback) callback();
+    }, 600); // match transition duration
+  }
+
+  function fadeIn(idToShow) {
+    const el = document.getElementById(idToShow);
+    el.style.display = 'flex';
+    setTimeout(() => {
+      el.classList.remove('hidden');
+    }, 10); // allow rendering first
+  }
+
+  function goToStep2(purpose) {
+    console.log("Purpose:", purpose);
+    fadeOutAndRemove('landingStep1', () => fadeIn('landingStep2'));
+  }
+
+  function proceedToMain(mode) {
+    console.log("Mode:", mode);
+    fadeOutAndRemove('landingStep2');
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  // Show landing flow only if not already completed
+  window.onload = function () {
+    const visited = localStorage.getItem('hasVisited');
+    if (visited === 'true') {
+      document.getElementById('mainApp').style.display = 'block';
+      document.getElementById('landingStep1').style.display = 'none';
+      document.getElementById('landingStep2').style.display = 'none';
+    } else {
+      document.getElementById('landingStep1').style.display = 'block';
+      document.getElementById('mainApp').style.display = 'none';
+    }
+  };
+
+  function goToStep2(purpose) {
+    localStorage.setItem('purpose', purpose);
+    document.getElementById('landingStep1').style.display = 'none';
+    document.getElementById('landingStep2').style.display = 'block';
+  }
+
+  function proceedToMain(mode) {
+    localStorage.setItem('mode', mode);
+    localStorage.setItem('hasVisited', 'true'); // ✅ Mark as visited
+
+    document.getElementById('landingStep2').style.display = 'none';
+    document.getElementById('mainApp').style.display = 'block';
+  }
+</script>
+
+
+
+
+
+<script>
+  let userProfile = {};
+
+  window.onload = function () {
+    const profile = localStorage.getItem('userProfile');
+    if (profile) {
+      userProfile = JSON.parse(profile);
+      document.getElementById('mainApp').style.display = 'block';
+      document.getElementById('landingStep1').style.display = 'none';
+      document.getElementById('landingStep2').style.display = 'none';
+      updateProfileInfo(); // populate profile dropdown
+    } else {
+      document.getElementById('landingStep1').style.display = 'block';
+      document.getElementById('mainApp').style.display = 'none';
+    }
+  };
+
+  function goToStep2(purpose) {
+    userProfile.purpose = purpose;
+    document.getElementById('landingStep1').style.display = 'none';
+    document.getElementById('landingStep2').style.display = 'block';
+  }
+
+  function proceedToMain(mode) {
+    userProfile.mode = mode;
+    localStorage.setItem('userProfile', JSON.stringify(userProfile));
+    document.getElementById('landingStep2').style.display = 'none';
+    document.getElementById('mainApp').style.display = 'block';
+    updateProfileInfo();
+  }
+
+  function updateProfileInfo() {
+    const profile = JSON.parse(localStorage.getItem('userProfile') || '{}');
+    document.getElementById('profilePurpose').innerText = profile.purpose || '-';
+    document.getElementById('profileMode').innerText = profile.mode || '-';
+  }
+</script>
+
+
+
+
+
+
+<script>
+  const signupBtn = document.getElementById('close-btn');
+  const modal = document.getElementById('signupModal');
+  const closeBtn = modal.querySelector('.close-btn');
+  const form = document.getElementById('signupForm');
+  const thankYou = document.getElementById('thankYouMessage');
+
+  signupBtn.addEventListener('click', () => {
+    modal.classList.add('show');
+    form.style.display = 'block';
+    thankYou.style.display = 'none';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('show');
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('show');
+    }
+  });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    form.style.display = 'none';
+    thankYou.style.display = 'block';
+  });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+
+<footer class="bg-dark text-white pt-4 pb-3 mt-5">
+  <div class="container text-center text-md-start">
+    <div class="row">
+      <!-- Site Info -->
+      <div class="col-md-4 mb-3">
+        <h5 class="text-uppercase fw-bold">INKspark</h5>
+        <p>Your interactive template builder for creative and flexible content design.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-3">
+        <h6 class="text-uppercase fw-bold">Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Templates</a></li>
+          <li><a href="#" class="text-white text-decoration-none">About</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-4 mb-3">
+        <h6 class="text-uppercase fw-bold">Contact</h6>
+        <p>Email: support@inkspark.io</p>
+        <div>
+          <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white me-3"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-light" />
+    <div class="text-center">
+      &copy; 2025 INKspark. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
