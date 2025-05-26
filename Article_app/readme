@@ -1,0 +1,26 @@
+# INKspark - Template Builder ✨
+
+INKspark is a lightweight, interactive **template builder web app** that lets users create customizable layouts using editable text and image blocks. With a polished UI, floating background animations, and persistent local storage, this tool helps you craft and manage content effortlessly — no backend required.
+
+---
+
+## 🚀 Technologies Used
+
+- **HTML5** – Structure of the application  
+- **CSS3** – Styling and animations  
+- **Bootstrap 5.3** – Responsive layout and UI components  
+- **Bootstrap Icons** – Visual icons for buttons and actions  
+- **JavaScript (Vanilla)** – DOM manipulation and local storage handling  
+- **LocalStorage API** – Save/load templates persistently on the client-side  
+
+---
+
+## 🧰 Installation & Setup
+
+No dependencies required – just run locally in any browser.
+
+### Clone the repository
+
+```bash
+git clone https://github.com/your-username/inkspark-template-builder.git
+cd inkspark-template-builder
